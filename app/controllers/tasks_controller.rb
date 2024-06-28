@@ -3,25 +3,20 @@ class TasksController < ApplicationController
   before_action :set_contract
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  # GET /contracts/:contract_id/tasks
   def index
     @tasks = @contract.tasks
   end
 
-  # GET /contracts/:contract_id/tasks/:id
   def show
   end
 
-  # GET /contracts/:contract_id/tasks/new
   def new
     @task = @contract.tasks.build
   end
 
-  # GET /contracts/:contract_id/tasks/:id/edit
   def edit
   end
 
-  # POST /contracts/:contract_id/tasks
   def create
     @task = @contract.tasks.create(task_params)
     @task.user_id = current_user.id
@@ -32,7 +27,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contracts/:contract_id/tasks/:id
   def update
     if @task.update(task_params)
       redirect_to [@contract, @task], notice: 'Task was successfully updated.'
@@ -41,7 +35,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /contracts/:contract_id/tasks/:id
   def destroy
     if @task.destroy
       redirect_to contract_url(@contract), notice: 'Task was successfully destroyed.'
