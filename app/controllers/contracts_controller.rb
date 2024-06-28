@@ -7,6 +7,7 @@ class ContractsController < ApplicationController
   end
 
   def show
+    @tasks = @contract.tasks
   end
 
   def new

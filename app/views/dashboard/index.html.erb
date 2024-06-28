@@ -6,6 +6,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
   <tbody>
@@ -13,24 +14,7 @@
       <tr>
         <td><%= contract.title %></td>
         <td><%= contract.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h2>Tasks</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= task.details %></td>
+        <td><%= link_to 'Show', contract %></td>
       </tr>
     <% end %>
   </tbody>

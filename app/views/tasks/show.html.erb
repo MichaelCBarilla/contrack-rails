@@ -1,0 +1,13 @@
+<h1><%= @task.title %></h1>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<%= link_to 'Edit', edit_contract_task_path(@contract, @task) %> |
+<%= link_to "Destroy", [@contract, @task], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %> | 
+<%= link_to 'Back', contract_path(@contract) %>

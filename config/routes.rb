@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create]
-  resources :contracts
-  resources :tasks
+  resources :contracts do
+    resources :tasks, except: [:index]
+  end
 
   get 'login', to: 'auth#login'
   post 'authenticate', to: 'auth#authenticate'

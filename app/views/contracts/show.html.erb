@@ -1,10 +1,24 @@
 <h1><%= @contract.title %></h1>
-<p><%= @contract.description %></p>
-<p><%= @contract.formatted_rate %></p>
-
 <%= link_to 'Edit', edit_contract_path(@contract) %> |
 <%= link_to "Destroy", contract_path(@contract), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %> | 
 <%= link_to 'Back', contracts_path %>
+<p><%= @contract.description %></p>
+<p><%= @contract.formatted_rate %></p>
+
+<h2>Tasks</h2>
+
+<%= link_to 'New Task', new_contract_task_path(@contract) %>
+
+
+
+<ul>
+  <% @contract.tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, [@contract, task] %>
+    </li>
+  <% end %>
+</ul>
+
