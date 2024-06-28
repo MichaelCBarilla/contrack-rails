@@ -1,0 +1,16 @@
+<h1>Login</h1>
+
+<%= form_with url: authenticate_path, local: true do %>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  
+  <div>
+    <%= submit_tag 'Login' %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to 'Sign Up', new_user_path %>
+</div>
