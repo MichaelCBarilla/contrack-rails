@@ -1,5 +1,6 @@
 <h1><%= @contract.title %></h1>
 <p><%= @contract.description %></p>
+<p><%= @contract.formatted_rate %></p>
 
 <%= link_to 'Edit', edit_contract_path(@contract) %> |
 <%= link_to "Destroy", contract_path(@contract), data: {
