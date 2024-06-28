@@ -2,4 +2,8 @@
 <p><%= @contract.description %></p>
 
 <%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to "Destroy", contract_path(@contract), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %> | 
 <%= link_to 'Back', contracts_path %>
