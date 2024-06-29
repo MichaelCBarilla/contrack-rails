@@ -4,6 +4,5 @@ class DashboardController < ApplicationController
   def index
     @user = current_user
     @contracts = @user.contracts
-    @tasks = @user.tasks
   end
 end
