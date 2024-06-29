@@ -1,5 +1,5 @@
 class AddRateToContracts < ActiveRecord::Migration[7.1]
   def change
-    add_column :contracts, :rate, :decimal
+    change_column :contracts, :rate, :decimal, :precision => 8, :scale => 2
   end
 end
