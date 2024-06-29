@@ -19,7 +19,6 @@ class TasksController < ApplicationController
 
   def create
     @task = @contract.tasks.create(task_params)
-    @task.user_id = current_user.id
     if @task.save
       redirect_to [@contract, @task], notice: 'Task was successfully created.'
     else
