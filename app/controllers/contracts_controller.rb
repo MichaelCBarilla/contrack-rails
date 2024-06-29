@@ -18,11 +18,11 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = current_user.contracts.build(contract_params)
+    @contract = current_user.contracts.new(contract_params)
     if @contract.save
       redirect_to @contract, notice: 'Contract was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,7 +30,7 @@ class ContractsController < ApplicationController
     if @contract.update(contract_params)
       redirect_to @contract, notice: 'Contract was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -3,26 +3,22 @@ class TasksController < ApplicationController
   before_action :set_contract
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @tasks = @contract.tasks
-  end
-
   def show
   end
 
   def new
-    @task = @contract.tasks.build
+    @task = @contract.tasks.new
   end
 
   def edit
   end
 
   def create
-    @task = @contract.tasks.create(task_params)
+    @task = @contract.tasks.new(task_params)
     if @task.save
       redirect_to [@contract, @task], notice: 'Task was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,7 +26,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to [@contract, @task], notice: 'Task was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
